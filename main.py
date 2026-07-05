@@ -4,7 +4,7 @@ from lcollections import Tester
 import solution
 
 
-def get_first_public_class():
+def get_first_class():
     for name in dir(solution):
         if name.startswith('__'):
             continue
@@ -17,7 +17,7 @@ def get_first_public_class():
 
 
 def main():
-    target_class = get_first_public_class()
+    target_class = get_first_class()
     tester = Tester(target_class, "./data/input.txt", "./data/expected.txt")
     tester.run_all()
 
