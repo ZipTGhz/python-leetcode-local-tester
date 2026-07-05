@@ -65,11 +65,7 @@ class Tester:
 
         with open(expected_file_path) as out_file:
             for raw_output in out_file:
-                raw_output = raw_output \
-                    .replace('null', 'None') \
-                    .replace('true', 'True') \
-                    .replace('false', 'False')
-                self.raw_outputs.append(literal_eval(raw_output))
+                self.raw_outputs.append(literal_eval(self.__clean_raw_string(raw_output)))
 
     def __init_solution_problem(self, input_file_path: str, expected_file_path: str):
         self.solution = self.AnyClass()
